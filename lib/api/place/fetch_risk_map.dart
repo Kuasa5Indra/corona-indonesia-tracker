@@ -6,6 +6,6 @@ import 'risk_map.dart';
 
 Future<RiskMap> fetchRiskMap() async {
   final response =
-  await http.get('https://data.covid19.go.id/public/api/skor.json');
+  await http.get(Uri.parse('https://data.covid19.go.id/public/api/skor.json'));
   return RiskMap.fromJson(json.decode(response.body));
 }
