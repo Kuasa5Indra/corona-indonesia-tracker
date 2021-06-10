@@ -1,4 +1,4 @@
-import 'file:///C:/Users/Asus/IdeaProjects/coronaindonesiatracker/lib/api/info_cases/info_data.dart';
+import 'package:coronaindonesiatracker/api/info_cases/info_data.dart';
 
 /// Link : https://data.covid19.go.id/public/api/data.json
 /// Kelas dibawah dibuat berdasarkan tampilan data json
