@@ -6,6 +6,6 @@ import 'distribution_map.dart';
 
 Future<DistributionMap> fetchDistributionMap() async {
   final response =
-  await http.get('https://data.covid19.go.id/public/api/prov.json');
+  await http.get(Uri.parse('https://data.covid19.go.id/public/api/prov.json'));
   return DistributionMap.fromJson(json.decode(response.body));
 }
