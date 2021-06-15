@@ -8,7 +8,6 @@ A new Flutter project to traces of the spread of Covid-19 from Indonesia.
 This project using public API 
 from [Indonesia's Covid-19 Handling Task Force](https://covid19.go.id/) 
 (Satuan Tugas Penanganan Covid-19 di Indonesia).
-<img src="https://covid19.go.id/storage/app/media/logo-satgas.png" width="250" height="250" />
 
 ## Usage
 
