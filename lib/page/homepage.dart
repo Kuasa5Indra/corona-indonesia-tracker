@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
 
 class DailyUpdateDetail extends StatelessWidget {
   final DailyData data;
-  final nf = NumberFormat("###,000", "id_ID");
+  final nf = NumberFormat("###,###", "id_ID");
 
   DailyUpdateDetail({Key key, this.data}) : super(key: key);
 

@@ -36,7 +36,7 @@ class _DistributionMapPageState extends State<DistributionMapPage> {
 
 class DistributionMapDetail extends StatelessWidget {
   final DistributionMap distributionMapData;
-  final nf = NumberFormat("###,000", "id_ID");
+  final nf = NumberFormat("###,###", "id_ID");
 
   DistributionMapDetail({Key key, this.distributionMapData}) : super(key: key);
 
@@ -62,7 +62,7 @@ class DistributionMapDetail extends StatelessWidget {
                 itemBuilder: (context, index){
                   return ListTile(
                     title: Text(distributionMapData.listProvince[index].province),
-                    subtitle: Text('${nf.format(distributionMapData.listProvince[index].totalConfirmedCase)}'),
+                    subtitle: Text('${nf.format(distributionMapData.listProvince[index].totalConfirmedCase)} kasus'),
                     trailing: Text('${
                         double.parse((distributionMapData.
                         listProvince[index].percentage).toStringAsFixed(2))
