@@ -1,10 +1,7 @@
-import 'package:coronaindonesiatracker/page/category_cases/cured_category_page.dart';
-import 'package:coronaindonesiatracker/page/category_cases/death_category_page.dart';
 import 'package:flutter/material.dart';
 import 'package:coronaindonesiatracker/api/info_cases/fetch_info_cases.dart';
 import 'package:coronaindonesiatracker/api/info_cases/info_cases.dart';
-import 'package:coronaindonesiatracker/page/category_cases/confirm_category_page.dart';
-import 'package:coronaindonesiatracker/page/category_cases/treated_category_page.dart';
+import 'package:coronaindonesiatracker/page/category_cases/category_cases_page.dart';
 
 class InfoCasesPage extends StatefulWidget {
   @override
@@ -65,17 +62,17 @@ class InfoCasesDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return TabBarView(
       children: [
-        ConfirmCategoryPage(
-          infoConfirmed: infoCases.infoConfirmed, date: infoCases.lastUpdate
+        CategoryCasesPage(
+          info: infoCases.infoConfirmed, date: infoCases.lastUpdate
         ),
-        TreatedCategoryPage(
-          infoTreated: infoCases.infoTreated, date: infoCases.lastUpdate,
+        CategoryCasesPage(
+          info: infoCases.infoTreated, date: infoCases.lastUpdate,
         ),
-        CuredCategoryPage(
-          infoCured: infoCases.infoCured, date: infoCases.lastUpdate,
+        CategoryCasesPage(
+          info: infoCases.infoCured, date: infoCases.lastUpdate,
         ),
-        DeathCategoryPage(
-          infoDeath: infoCases.infoDeath, date: infoCases.lastUpdate,
+        CategoryCasesPage(
+          info: infoCases.infoDeath, date: infoCases.lastUpdate,
         )
       ],
     );

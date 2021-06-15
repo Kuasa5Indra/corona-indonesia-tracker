@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:coronaindonesiatracker/api/info_cases/info_cases.dart';
 
-class DeathCategoryPage extends StatelessWidget {
-  final Cases infoDeath;
+class CategoryCasesPage extends StatelessWidget {
+  final Cases info;
   final String date;
 
-  DeathCategoryPage({Key key, this.infoDeath, this.date}) : super(key: key);
+  CategoryCasesPage({Key key, this.info, this.date}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class DeathCategoryPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Text('Update'),
-                  Text(date)
+                  Text(DateFormat.yMMMMd().format(DateTime.parse(date)))
                 ],
               ),
             ),
@@ -30,7 +31,7 @@ class DeathCategoryPage extends StatelessWidget {
                 DataColumn(label: Text('Kondisi')),
                 DataColumn(label: Text('Persen')),
               ],
-              rows: infoDeath.condition.listData
+              rows: info.condition.listData
                   .map((index) => DataRow(cells: [
                 DataCell(
                     Text(index.key)
@@ -45,7 +46,7 @@ class DeathCategoryPage extends StatelessWidget {
                 DataColumn(label: Text('Jenis Kelamin')),
                 DataColumn(label: Text('Persen')),
               ],
-              rows: infoDeath.gender.listData
+              rows: info.gender.listData
                   .map((index) => DataRow(cells: [
                 DataCell(
                     Text(index.key)
@@ -60,7 +61,7 @@ class DeathCategoryPage extends StatelessWidget {
                 DataColumn(label: Text('Kelompok Umur')),
                 DataColumn(label: Text('Persen')),
               ],
-              rows: infoDeath.ageGroup.listData
+              rows: info.ageGroup.listData
                   .map((index) => DataRow(cells: [
                 DataCell(
                     Text(index.key)
@@ -75,7 +76,7 @@ class DeathCategoryPage extends StatelessWidget {
                 DataColumn(label: Text('Gejala')),
                 DataColumn(label: Text('Persen')),
               ],
-              rows: infoDeath.symptoms.listData
+              rows: info.symptoms.listData
                   .map((index) => DataRow(cells: [
                 DataCell(
                     Text(index.key)
@@ -91,3 +92,4 @@ class DeathCategoryPage extends StatelessWidget {
     );
   }
 }
+
