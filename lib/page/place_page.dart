@@ -20,8 +20,8 @@ class _PlacesPageState extends State<PlacesPage> {
           bottom: TabBar(
             indicatorColor: Colors.white,
             tabs: [
-              Tab(text: 'Distribution Map'),
-              Tab(text: 'Risk Map'),
+              Tab(text: 'Lokasi Sebaran'),
+              Tab(text: 'Lokasi Resiko'),
             ],
           ),
         ),
