@@ -98,7 +98,7 @@ class _RiskMapPageState extends State<RiskMapPage> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black87,
         onPressed: (){
-          Toast.show("Weekly update from ${date}",
+          Toast.show("Weekly update from $date",
               context, duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
         },
         tooltip: 'Info Weekly Update',
