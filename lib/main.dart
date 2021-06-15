@@ -43,7 +43,7 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
         },
         items: [
           BottomNavigationBarItem(
-              label: 'Home',
+              label: 'Homepage',
               icon: Icon(Icons.home)
           ),
           BottomNavigationBarItem(

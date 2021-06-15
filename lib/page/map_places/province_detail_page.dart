@@ -1,8 +1,10 @@
 import 'package:coronaindonesiatracker/api/place/distribution_map.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 
 class ProvinceDetailPage extends StatelessWidget {
   final InfoProvince infoProvince;
+  final nf = NumberFormat("###,###", "id_ID");
 
   ProvinceDetailPage({Key key, @required this.infoProvince}) : super(key: key);
 
@@ -33,8 +35,8 @@ class ProvinceDetailPage extends StatelessWidget {
                     Text('Terkonfirmasi', style: TextStyle(
                         fontSize: 20
                     )),
-                    Text('${infoProvince.totalConfirmedCase.toString()} ('
-                        '${infoProvince.infoProvinceCase.confirmedCase})',
+                    Text('${nf.format(infoProvince.totalConfirmedCase)} ('
+                        '${nf.format(infoProvince.infoProvinceCase.confirmedCase)})',
                         style: TextStyle(
                         fontWeight: FontWeight.bold,
                       color: Colors.red
@@ -51,8 +53,8 @@ class ProvinceDetailPage extends StatelessWidget {
                     Text('Sembuh', style: TextStyle(
                         fontSize: 20
                     )),
-                    Text('${infoProvince.totalCuredCase.toString()} ('
-                        '${infoProvince.infoProvinceCase.curedCase})',
+                    Text('${nf.format(infoProvince.totalCuredCase)} ('
+                        '${nf.format(infoProvince.infoProvinceCase.curedCase)})',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.green
@@ -69,8 +71,8 @@ class ProvinceDetailPage extends StatelessWidget {
                     Text('Meninggal', style: TextStyle(
                         fontSize: 20
                     )),
-                    Text('${infoProvince.totalDeathCase.toString()} ('
-                        '${infoProvince.infoProvinceCase.deathCase})',
+                    Text('${nf.format(infoProvince.totalDeathCase)} ('
+                        '${nf.format(infoProvince.infoProvinceCase.deathCase)})',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.blue
@@ -84,10 +86,10 @@ class ProvinceDetailPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Perawatan', style: TextStyle(
+                    Text('Kasus Aktif', style: TextStyle(
                         fontSize: 20
                     )),
-                    Text(infoProvince.totalTreatedCase.toString(),
+                    Text(nf.format(infoProvince.totalTreatedCase),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.orange

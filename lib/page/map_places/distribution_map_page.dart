@@ -1,6 +1,7 @@
 import 'package:coronaindonesiatracker/api/place/distribution_map.dart';
 import 'package:coronaindonesiatracker/api/place/fetch_distribution_map.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'province_detail_page.dart';
 
 class DistributionMapPage extends StatefulWidget {
@@ -35,6 +36,7 @@ class _DistributionMapPageState extends State<DistributionMapPage> {
 
 class DistributionMapDetail extends StatelessWidget {
   final DistributionMap distributionMapData;
+  final nf = NumberFormat("###,###", "id_ID");
 
   DistributionMapDetail({Key key, this.distributionMapData}) : super(key: key);
 
@@ -50,7 +52,7 @@ class DistributionMapDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text('Daily Update'),
-                Text(distributionMapData.date)
+                Text(DateFormat.yMMMMd().format(DateTime.parse(distributionMapData.date)))
               ],
             ),
           ),
@@ -60,7 +62,7 @@ class DistributionMapDetail extends StatelessWidget {
                 itemBuilder: (context, index){
                   return ListTile(
                     title: Text(distributionMapData.listProvince[index].province),
-                    subtitle: Text(distributionMapData.listProvince[index].totalConfirmedCase.toString()),
+                    subtitle: Text('${nf.format(distributionMapData.listProvince[index].totalConfirmedCase)} kasus'),
                     trailing: Text('${
                         double.parse((distributionMapData.
                         listProvince[index].percentage).toStringAsFixed(2))
