@@ -43,15 +43,15 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
         },
         items: [
           BottomNavigationBarItem(
-              label: 'Homepage',
+              label: 'Beranda',
               icon: Icon(Icons.home)
           ),
           BottomNavigationBarItem(
-              label: 'Cases',
+              label: 'Info Kasus',
               icon: Icon(Icons.info_outline)
           ),
           BottomNavigationBarItem(
-              label: 'Places',
+              label: 'Lokasi',
               icon: Icon(Icons.location_city)
           ),
         ],

@@ -21,7 +21,7 @@ class CategoryCasesPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text('Update'),
+                  Text('Update Terbaru'),
                   Text(DateFormat.yMMMMd().format(DateTime.parse(date)))
                 ],
               ),

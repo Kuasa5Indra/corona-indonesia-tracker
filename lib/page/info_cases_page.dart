@@ -19,16 +19,16 @@ class _InfoCasesPageState extends State<InfoCasesPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      'Confirm',
-      'Treated',
-      'Cured',
-      'Death',
+      'Konfirmasi',
+      'Aktif',
+      'Sembuh',
+      'Meninggal',
     ];
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Info Cases'),
+          title: Text('Info Kasus'),
           backgroundColor: Colors.redAccent,
           bottom: TabBar(
             indicatorColor: Colors.white,

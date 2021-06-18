@@ -53,7 +53,7 @@ class _RiskMapPageState extends State<RiskMapPage> {
             margin: EdgeInsets.all(8.0),
             child: TextField(
               decoration: InputDecoration(
-                hintText: 'Enter city, province or risk status',
+                hintText: 'Masukkan kota, provinsi, atau status resiko',
                 border: InputBorder.none
               ),
               onChanged: (value) {

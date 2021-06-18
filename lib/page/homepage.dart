@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Homepage'),
+        title: Text('Beranda'),
         backgroundColor: Colors.redAccent,
       ),
       body: SafeArea(
@@ -59,7 +59,7 @@ class DailyUpdateDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Update'),
+                Text('Update Harian'),
                 Text(DateFormat.yMMMMd().format(DateTime.parse(data.getUpdateDate())))
               ],
             ),

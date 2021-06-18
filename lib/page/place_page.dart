@@ -15,7 +15,7 @@ class _PlacesPageState extends State<PlacesPage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Places'),
+          title: Text('Lokasi'),
           backgroundColor: Colors.redAccent,
           bottom: TabBar(
             indicatorColor: Colors.white,

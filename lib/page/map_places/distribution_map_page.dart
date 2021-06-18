@@ -51,7 +51,7 @@ class DistributionMapDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Daily Update'),
+                Text('Update Terbaru'),
                 Text(DateFormat.yMMMMd().format(DateTime.parse(distributionMapData.date)))
               ],
             ),
