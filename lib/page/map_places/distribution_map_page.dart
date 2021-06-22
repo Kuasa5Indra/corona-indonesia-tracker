@@ -10,7 +10,7 @@ class DistributionMapPage extends StatefulWidget {
 }
 
 class _DistributionMapPageState extends State<DistributionMapPage> {
-  Future<DistributionMap> futureDistributionMap;
+  Future<DistributionMap>? futureDistributionMap;
 
   @override
   void initState() {
@@ -24,10 +24,10 @@ class _DistributionMapPageState extends State<DistributionMapPage> {
       future: futureDistributionMap,
       builder: (context, snapshot){
         if(snapshot.hasError){
-          return Center(child: Text(snapshot.error));
+          return Center(child: Text(snapshot.error.toString()));
         }
         return (snapshot.hasData)
-            ? DistributionMapDetail(distributionMapData : snapshot.data)
+            ? DistributionMapDetail(distributionMapData : snapshot.data!)
             : Center(child: CircularProgressIndicator());
       },
     );
@@ -38,7 +38,7 @@ class DistributionMapDetail extends StatelessWidget {
   final DistributionMap distributionMapData;
   final nf = NumberFormat("###,###", "id_ID");
 
-  DistributionMapDetail({Key key, this.distributionMapData}) : super(key: key);
+  DistributionMapDetail({Key? key, required this.distributionMapData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

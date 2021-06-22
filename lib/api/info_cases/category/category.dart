@@ -6,7 +6,7 @@ import 'package:coronaindonesiatracker/api/info_cases/info_data.dart';
 class PatientCategory {
   List<InfoData> listData;
 
-  PatientCategory({this.listData});
+  PatientCategory({required this.listData});
 
   factory PatientCategory.fromJson(Map<String, dynamic> json){
     return PatientCategory(

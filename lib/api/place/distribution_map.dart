@@ -5,7 +5,7 @@ class DistributionMap {
   final String date;
   final List<InfoProvince> listProvince;
 
-  DistributionMap({this.date, this.listProvince});
+  DistributionMap({required this.date, required this.listProvince});
 
   factory DistributionMap.fromJson(Map<String, dynamic> json){
     return DistributionMap(
@@ -31,13 +31,13 @@ class InfoProvince {
   final InfoProvinceCase infoProvinceCase;
 
   InfoProvince(
-      {this.province,
-      this.percentage,
-      this.totalConfirmedCase,
-      this.totalCuredCase,
-      this.totalDeathCase,
-      this.totalTreatedCase,
-      this.infoProvinceCase
+      {required this.province,
+      required this.percentage,
+      required this.totalConfirmedCase,
+      required this.totalCuredCase,
+      required this.totalDeathCase,
+      required this.totalTreatedCase,
+      required this.infoProvinceCase
       });
 
   factory InfoProvince.fromJson(Map<String, dynamic> json){
@@ -58,7 +58,7 @@ class InfoProvinceCase {
   final int curedCase;
   final int deathCase;
 
-  InfoProvinceCase({this.confirmedCase, this.curedCase, this.deathCase});
+  InfoProvinceCase({required this.confirmedCase, required this.curedCase, required this.deathCase});
 
   factory InfoProvinceCase.fromJson(Map<String, dynamic> json){
     return InfoProvinceCase(

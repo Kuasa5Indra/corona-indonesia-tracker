@@ -1,7 +1,7 @@
 import 'package:coronaindonesiatracker/api/place/fetch_risk_map.dart';
 import 'package:coronaindonesiatracker/api/place/risk_map.dart';
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RiskMapPage extends StatefulWidget {
   @override
@@ -9,9 +9,9 @@ class RiskMapPage extends StatefulWidget {
 }
 
 class _RiskMapPageState extends State<RiskMapPage> {
-  String date;
-  List<InfoCity> infoCities;
-  List<InfoCity> filterInfoCities;
+  String? date;
+  List<InfoCity>? infoCities;
+  List<InfoCity>? filterInfoCities;
   bool isLoading = true;
 
   @override
@@ -19,7 +19,7 @@ class _RiskMapPageState extends State<RiskMapPage> {
     fetchRiskMap().then((data){
       date = data.date;
       infoCities = data.infoCities;
-      infoCities.sort((a, b) => a.city.compareTo(b.city));
+      infoCities!.sort((a, b) => a.city.compareTo(b.city));
       filterInfoCities = infoCities;
       setState(() {
         isLoading = false;
@@ -29,7 +29,7 @@ class _RiskMapPageState extends State<RiskMapPage> {
   }
 
   Color getStatusColor(int index){
-    switch(filterInfoCities[index].risk){
+    switch(filterInfoCities![index].risk){
       case 'RESIKO TINGGI':
         return Colors.red;
       case 'RESIKO SEDANG':
@@ -58,7 +58,7 @@ class _RiskMapPageState extends State<RiskMapPage> {
               ),
               onChanged: (value) {
                 setState(() {
-                  filterInfoCities = infoCities.where((data) =>
+                  filterInfoCities = infoCities!.where((data) =>
                   data.city.toLowerCase().contains(value.toLowerCase()) ||
                       data.province.toLowerCase().contains(value.toLowerCase()) ||
                       data.risk.toLowerCase().contains(value.toLowerCase())
@@ -68,24 +68,24 @@ class _RiskMapPageState extends State<RiskMapPage> {
             ),
           ),
           Expanded(
-            child: (filterInfoCities.isNotEmpty) ? ListView.builder(
-                itemCount: filterInfoCities.length,
+            child: (filterInfoCities!.isNotEmpty) ? ListView.builder(
+                itemCount: filterInfoCities!.length,
                 itemBuilder: (context, index){
                   return Card(
                     color: getStatusColor(index),
                     child: Column(
                       children: [
-                        Text(filterInfoCities[index].city,
+                        Text(filterInfoCities![index].city,
                             style: TextStyle(
                                 fontSize: 20.0
                             )),
                         SizedBox(height: 4.0),
-                        Text(filterInfoCities[index].province,
+                        Text(filterInfoCities![index].province,
                             style: TextStyle(
                                 fontSize: 10.0
                             )),
                         SizedBox(height: 4.0),
-                        Text(filterInfoCities[index].risk),
+                        Text(filterInfoCities![index].risk),
                       ],
                     ),
                   );
@@ -99,8 +99,12 @@ class _RiskMapPageState extends State<RiskMapPage> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.black87,
         onPressed: (){
-          Toast.show("Pembaruan mingguan mulai dari $date",
-              context, duration: Toast.LENGTH_LONG, gravity: Toast.CENTER);
+          Fluttertoast.showToast(
+              msg: "Pembaruan mingguan mulai dari $date",
+              toastLength: Toast.LENGTH_LONG,
+              gravity: ToastGravity.CENTER,
+              timeInSecForIosWeb: 1,
+          );
         },
         tooltip: 'Info Pembaruan Mingguan',
       ),

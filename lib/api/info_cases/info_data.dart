@@ -5,7 +5,7 @@ class InfoData {
   final String key;
   final double docCount;
 
-  InfoData({this.key, this.docCount});
+  InfoData({required this.key, required this.docCount});
 
   factory InfoData.fromJson(Map<String, dynamic> json){
     return InfoData(

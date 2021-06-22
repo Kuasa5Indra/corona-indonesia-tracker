@@ -6,7 +6,7 @@ class CategoryCasesPage extends StatelessWidget {
   final Cases info;
   final String date;
 
-  CategoryCasesPage({Key key, this.info, this.date}) : super(key: key);
+  CategoryCasesPage({Key? key, required this.info, required this.date}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class CategoryCasesPage extends StatelessWidget {
                     Text(index.key)
                 ),
                 DataCell(
-                    Text(double.parse((index.docCount).toStringAsFixed(2)).toString())
+                    Text(double.parse((index.docCount).toStringAsFixed(1)).toString())
                 )
               ])).toList(),
             ),
@@ -67,7 +67,7 @@ class CategoryCasesPage extends StatelessWidget {
                     Text(index.key)
                 ),
                 DataCell(
-                    Text(double.parse((index.docCount).toStringAsFixed(2)).toString())
+                    Text(double.parse((index.docCount).toStringAsFixed(1)).toString())
                 )
               ])).toList(),
             ),
