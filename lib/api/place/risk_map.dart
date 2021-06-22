@@ -5,7 +5,7 @@ class RiskMap {
   final String date;
   final List<InfoCity> infoCities;
 
-  RiskMap({this.date, this.infoCities});
+  RiskMap({required this.date, required this.infoCities});
 
   factory RiskMap.fromJson(Map<String, dynamic> json){
     return RiskMap(
@@ -26,7 +26,7 @@ class InfoCity {
   final String city;
   final String risk;
 
-  InfoCity({this.province, this.city, this.risk});
+  InfoCity({required this.province, required this.city, required this.risk});
 
   factory InfoCity.fromJson(Map<String, dynamic> json){
     return InfoCity(

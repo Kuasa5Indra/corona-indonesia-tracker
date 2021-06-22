@@ -5,7 +5,7 @@ class DailyData {
   final _DailyCaseData caseData;
   final _DailyUpdateData updateData;
 
-  DailyData({this.caseData, this.updateData});
+  DailyData({required this.caseData, required this.updateData});
 
   factory DailyData.fromJson(Map<String, dynamic> json){
     return DailyData(
@@ -33,7 +33,7 @@ class _DailyCaseData {
   final int specimens;
   final int negativeSpecimens;
 
-  _DailyCaseData({this.suspect, this.specimens, this.negativeSpecimens});
+  _DailyCaseData({required this.suspect, required this.specimens, required this.negativeSpecimens});
 
   factory _DailyCaseData.fromJson(Map<String, dynamic> json){
     return _DailyCaseData(
@@ -48,7 +48,7 @@ class _DailyUpdateData {
   final _DailyAdditionalCases additionalCases;
   final _DailyTotalCases totalCases;
 
-  _DailyUpdateData({this.additionalCases, this.totalCases});
+  _DailyUpdateData({required this.additionalCases, required this.totalCases});
 
   factory _DailyUpdateData.fromJson(Map<String, dynamic> json){
     return _DailyUpdateData(
@@ -76,11 +76,11 @@ class _DailyAdditionalCases {
   final int deathCases;
 
   _DailyAdditionalCases(
-      {this.date,
-      this.positiveCases,
-      this.treatedCases,
-      this.curedCases,
-      this.deathCases});
+      {required this.date,
+      required this.positiveCases,
+      required this.treatedCases,
+      required this.curedCases,
+      required this.deathCases});
 
   factory _DailyAdditionalCases.fromJson(Map<String, dynamic> json){
     return _DailyAdditionalCases(
@@ -99,8 +99,8 @@ class _DailyTotalCases {
   final int totalCuredCases;
   final int totalDeathCases;
 
-  _DailyTotalCases({this.totalPositiveCases, this.totalTreatedCases,
-    this.totalCuredCases, this.totalDeathCases});
+  _DailyTotalCases({required this.totalPositiveCases, required this.totalTreatedCases,
+    required this.totalCuredCases, required this.totalDeathCases});
 
   factory _DailyTotalCases.fromJson(Map<String, dynamic> json){
     return _DailyTotalCases(

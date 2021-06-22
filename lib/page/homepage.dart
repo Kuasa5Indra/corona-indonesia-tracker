@@ -9,7 +9,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Future<DailyData> futureData;
+  Future<DailyData>? futureData;
 
   @override
   void initState() {
@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Homepage'),
+        title: Text('Beranda'),
         backgroundColor: Colors.redAccent,
       ),
       body: SafeArea(
@@ -29,10 +29,10 @@ class _HomePageState extends State<HomePage> {
           future: futureData,
           builder: (context, snapshot){
             if(snapshot.hasError){
-              return Center(child: Text(snapshot.error));
+              return Center(child: Text(snapshot.error.toString()));
             }
             return (snapshot.hasData)
-                ? DailyUpdateDetail(data: snapshot.data)
+                ? DailyUpdateDetail(data: snapshot.data!)
                 : Center(child: CircularProgressIndicator());
           },
         ),
@@ -45,7 +45,7 @@ class DailyUpdateDetail extends StatelessWidget {
   final DailyData data;
   final nf = NumberFormat("###,###", "id_ID");
 
-  DailyUpdateDetail({Key key, this.data}) : super(key: key);
+  DailyUpdateDetail({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class DailyUpdateDetail extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Update'),
+                Text('Update Harian'),
                 Text(DateFormat.yMMMMd().format(DateTime.parse(data.getUpdateDate())))
               ],
             ),

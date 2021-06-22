@@ -10,11 +10,11 @@ class InfoCases {
   final Cases infoDeath;
 
   InfoCases(
-      {this.lastUpdate,
-      this.infoConfirmed,
-      this.infoTreated,
-      this.infoCured,
-      this.infoDeath});
+      {required this.lastUpdate,
+      required this.infoConfirmed,
+      required this.infoTreated,
+      required this.infoCured,
+      required this.infoDeath});
 
   factory InfoCases.fromJson(Map<String, dynamic> json){
     return InfoCases(
@@ -34,7 +34,10 @@ class Cases {
   final PatientCategory symptoms;
 
   Cases(
-      {this.condition, this.ageGroup, this.gender, this.symptoms});
+      {required this.condition,
+        required this.ageGroup,
+        required this.gender,
+        required this.symptoms});
 
   factory Cases.fromJson(Map<String, dynamic> json){
     return Cases(
