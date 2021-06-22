@@ -9,7 +9,7 @@ class InfoCasesPage extends StatefulWidget {
 }
 
 class _InfoCasesPageState extends State<InfoCasesPage> {
-  Future<InfoCases> futureInfoCases;
+  Future<InfoCases>? futureInfoCases;
 
   @override
   void initState() {
@@ -19,16 +19,16 @@ class _InfoCasesPageState extends State<InfoCasesPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      'Confirm',
-      'Treated',
-      'Cured',
-      'Death',
+      'Konfirmasi',
+      'Aktif',
+      'Sembuh',
+      'Meninggal',
     ];
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Info Cases'),
+          title: Text('Info Kasus'),
           backgroundColor: Colors.redAccent,
           bottom: TabBar(
             indicatorColor: Colors.white,
@@ -41,10 +41,10 @@ class _InfoCasesPageState extends State<InfoCasesPage> {
           future: futureInfoCases,
           builder: (context, snapshot){
             if(snapshot.hasError){
-              return Center(child: Text(snapshot.error));
+              return Center(child: Text(snapshot.error.toString()));
             }
             return (snapshot.hasData)
-                ? InfoCasesDetail(infoCases: snapshot.data)
+                ? InfoCasesDetail(infoCases: snapshot.data!)
                 : Center(child: CircularProgressIndicator());
           },
         ),
@@ -56,7 +56,7 @@ class _InfoCasesPageState extends State<InfoCasesPage> {
 class InfoCasesDetail extends StatelessWidget {
   final InfoCases infoCases;
 
-  InfoCasesDetail({Key key, this.infoCases}) : super(key: key);
+  InfoCasesDetail({Key? key, required this.infoCases}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

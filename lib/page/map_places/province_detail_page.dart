@@ -6,7 +6,7 @@ class ProvinceDetailPage extends StatelessWidget {
   final InfoProvince infoProvince;
   final nf = NumberFormat("###,###", "id_ID");
 
-  ProvinceDetailPage({Key key, @required this.infoProvince}) : super(key: key);
+  ProvinceDetailPage({Key ?key, required this.infoProvince}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
