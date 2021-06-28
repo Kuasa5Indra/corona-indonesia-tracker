@@ -64,7 +64,7 @@ class DailyUpdateDetail extends StatelessWidget {
             color: Colors.red,
             child: ListTile(
               title: Center(
-                child: Text('${nf.format(int.parse(data.getUpdateTotalPositiveCases()))}',
+                child: Text('${nf.format(data.getUpdateTotalPositiveCases())}',
                     style: TextStyle(color: Colors.white, fontSize: 18)
                 ),
               ),
@@ -76,7 +76,7 @@ class DailyUpdateDetail extends StatelessWidget {
                           style: TextStyle(color: Colors.white, fontSize: 24)
                       ),
                       Text(
-                          '${nf.format(int.parse(data.getUpdatePositiveCases()))} kasus',
+                          '${nf.format(data.getUpdatePositiveCases())} kasus',
                           style: TextStyle(color: Colors.white, fontSize: 16)
                       ),
                     ],
@@ -88,7 +88,7 @@ class DailyUpdateDetail extends StatelessWidget {
             color: Colors.orange,
             child: ListTile(
               title: Center(
-                child: Text('${nf.format(int.parse(data.getUpdateTotalTreatedCases()))}',
+                child: Text('${nf.format(data.getUpdateTotalTreatedCases())}',
                     style: TextStyle(color: Colors.white, fontSize: 18)
                 ),
               ),
@@ -100,7 +100,7 @@ class DailyUpdateDetail extends StatelessWidget {
                           style: TextStyle(color: Colors.white, fontSize: 24)
                       ),
                       Text(
-                          '${nf.format(int.parse(data.getUpdateTreatedCases()))} kasus',
+                          '${nf.format(data.getUpdateTreatedCases())} kasus',
                           style: TextStyle(color: Colors.white, fontSize: 16)
                       ),
                     ],
@@ -112,7 +112,7 @@ class DailyUpdateDetail extends StatelessWidget {
             color: Colors.green,
             child: ListTile(
               title: Center(
-                child: Text('${nf.format(int.parse(data.getUpdateTotalCuredCases()))}',
+                child: Text('${nf.format(data.getUpdateTotalCuredCases())}',
                     style: TextStyle(color: Colors.white, fontSize: 18)
                 ),
               ),
@@ -124,7 +124,7 @@ class DailyUpdateDetail extends StatelessWidget {
                           style: TextStyle(color: Colors.white, fontSize: 24)
                       ),
                       Text(
-                          '${nf.format(int.parse(data.getUpdateCuredCases()))} kasus',
+                          '${nf.format(data.getUpdateCuredCases())} kasus',
                           style: TextStyle(color: Colors.white, fontSize: 16)
                       ),
                     ],
@@ -136,7 +136,7 @@ class DailyUpdateDetail extends StatelessWidget {
             color: Colors.blue,
             child: ListTile(
               title: Center(
-                child: Text('${nf.format(int.parse(data.getUpdateTotalDeathCases()))}',
+                child: Text('${nf.format(data.getUpdateTotalDeathCases())}',
                     style: TextStyle(color: Colors.white, fontSize: 18)
                 ),
               ),
@@ -148,7 +148,7 @@ class DailyUpdateDetail extends StatelessWidget {
                           style: TextStyle(color: Colors.white, fontSize: 24)
                       ),
                       Text(
-                          '${nf.format(int.parse(data.getUpdateDeathCases()))} kasus',
+                          '${nf.format(data.getUpdateDeathCases())} kasus',
                           style: TextStyle(color: Colors.white, fontSize: 16)
                       ),
                     ],
@@ -160,7 +160,7 @@ class DailyUpdateDetail extends StatelessWidget {
             color: Colors.black,
             child: ListTile(
               title: Center(
-                child: Text('${nf.format(int.parse(data.getSuspect()))}',
+                child: Text('${nf.format(data.getSuspect())}',
                     style: TextStyle(color: Colors.white, fontSize: 18)
                 ),
               ),
@@ -192,7 +192,7 @@ class DailyUpdateDetail extends StatelessWidget {
                 ),
               ),
               subtitle: Center(
-                  child: Text('${nf.format(int.parse(data.getSpecimens()))}',
+                  child: Text('${nf.format(data.getSpecimens())}',
                       style: TextStyle(color: Colors.white, fontSize: 24)
                   )
               ),
@@ -207,7 +207,7 @@ class DailyUpdateDetail extends StatelessWidget {
                 ),
               ),
               subtitle: Center(
-                  child: Text('${nf.format(int.parse(data.getNegativeSpecimens()))}',
+                  child: Text('${nf.format(data.getNegativeSpecimens())}',
                       style: TextStyle(color: Colors.white, fontSize: 24)
                   )
               ),

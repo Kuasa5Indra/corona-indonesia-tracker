@@ -14,36 +14,24 @@ class ReportData {
     );
   }
 
-  String getUpdateTestingDate() => testingReportData.additionalTesting.date;
-  String getUpdateVaccinationDate() => vaccinationReportData.additionalVaccination.date;
-  String getAdditionalPCRSpecimen() => testingReportData.additionalTesting.pcrSpecimen.toString();
-  String getAdditionalAntigenSpecimen() => testingReportData.additionalTesting.antigenSpecimen.toString();
-  String getTotalPCRSpecimen() => testingReportData.totalTesting.totalPCRSpecimen.toString();
-  String getTotalAntigenSpecimen() => testingReportData.totalTesting.totalAntigenSpecimen.toString();
-  String getAdditionalPCRTested() => testingReportData.additionalTesting.pcrTested.toString();
-  String getAdditionalAntigenTested() => testingReportData.additionalTesting.antigenTested.toString();
-  String getTotalPCRTested() => testingReportData.totalTesting.totalPCRTested.toString();
-  String getTotalAntigenTested() => testingReportData.totalTesting.totalAntigenTested.toString();
-  String getAdditionalSpecimen() {
-    var additionSpecimen = testingReportData.additionalTesting.pcrSpecimen + testingReportData.additionalTesting.antigenSpecimen;
-    return additionSpecimen.toString();
-  }
-  String getAdditionalPeopleTested() {
-    var additionPeopleTested = testingReportData.additionalTesting.pcrTested + testingReportData.additionalTesting.antigenTested;
-    return additionPeopleTested.toString();
-  }
-  String getTotalSpecimen() {
-    var totalSpecimen = testingReportData.totalTesting.totalPCRSpecimen + testingReportData.totalTesting.totalAntigenSpecimen;
-    return totalSpecimen.toString();
-  }
-  String getTotalPeopleTested() {
-    var totalPeopleTested = testingReportData.totalTesting.totalPCRTested + testingReportData.totalTesting.totalAntigenTested;
-    return totalPeopleTested.toString();
-  }
-  String getAdditionalFirstVaccine() => vaccinationReportData.additionalVaccination.firstVaccination.toString();
-  String getAdditionalSecondVaccine() => vaccinationReportData.additionalVaccination.secondVaccination.toString();
-  String getTotalFirstVaccine() => vaccinationReportData.totalVaccination.totalFirstVaccination.toString();
-  String getTotalSecondVaccine() => vaccinationReportData.totalVaccination.totalSecondVaccination.toString();
+  String getUpdateTestingDate() => testingReportData.getUpdateTestingDate();
+  String getUpdateVaccinationDate() => vaccinationReportData.getUpdateVaccinationDate();
+  int getAdditionalPCRSpecimen() => testingReportData.getAdditionalPCRSpecimen();
+  int getAdditionalAntigenSpecimen() => testingReportData.getAdditionalAntigenSpecimen();
+  int getTotalPCRSpecimen() => testingReportData.getTotalPCRSpecimen();
+  int getTotalAntigenSpecimen() => testingReportData.getTotalAntigenSpecimen();
+  int getAdditionalPCRTested() => testingReportData.getAdditionalPCRTested();
+  int getAdditionalAntigenTested() => testingReportData.getAdditionalAntigenTested();
+  int getTotalPCRTested() => testingReportData.getTotalPCRTested();
+  int getTotalAntigenTested() => testingReportData.getTotalAntigenTested();
+  int getAdditionalSpecimen() => testingReportData.getAdditionalPCRSpecimen() + testingReportData.getAdditionalAntigenSpecimen();
+  int getAdditionalPeopleTested() => testingReportData.getAdditionalPCRTested() + testingReportData.getAdditionalAntigenTested();
+  int getTotalSpecimen() => testingReportData.getTotalPCRSpecimen() + testingReportData.getTotalAntigenSpecimen();
+  int getTotalPeopleTested() => testingReportData.getTotalPCRTested() + testingReportData.getTotalAntigenTested();
+  int getAdditionalFirstVaccine() => vaccinationReportData.getAdditionalFirstVaccine();
+  int getAdditionalSecondVaccine() => vaccinationReportData.getAdditionalSecondVaccine();
+  int getTotalFirstVaccine() => vaccinationReportData.getTotalFirstVaccine();
+  int getTotalSecondVaccine() => vaccinationReportData.getTotalSecondVaccine();
 }
 
 class TestingReportData {
@@ -58,6 +46,16 @@ class TestingReportData {
         totalTesting: _TotalTestingData.fromJson(json['total'])
     );
   }
+
+  String getUpdateTestingDate() => additionalTesting.date;
+  int getAdditionalPCRSpecimen() => additionalTesting.pcrSpecimen;
+  int getAdditionalAntigenSpecimen() => additionalTesting.antigenSpecimen;
+  int getTotalPCRSpecimen() => totalTesting.totalPCRSpecimen;
+  int getTotalAntigenSpecimen() => totalTesting.totalAntigenSpecimen;
+  int getAdditionalPCRTested() => additionalTesting.pcrTested;
+  int getAdditionalAntigenTested() => additionalTesting.antigenTested;
+  int getTotalPCRTested() => totalTesting.totalPCRTested;
+  int getTotalAntigenTested() => totalTesting.totalAntigenTested;
 }
 
 class VaccinationReportData {
@@ -73,6 +71,12 @@ class VaccinationReportData {
         totalVaccination: _TotalVaccinationData.fromJson(json['total'])
     );
   }
+
+  String getUpdateVaccinationDate() => additionalVaccination.date;
+  int getAdditionalFirstVaccine() => additionalVaccination.firstVaccination;
+  int getAdditionalSecondVaccine() => additionalVaccination.secondVaccination;
+  int getTotalFirstVaccine() => totalVaccination.totalFirstVaccination;
+  int getTotalSecondVaccine() => totalVaccination.totalSecondVaccination;
 }
 
 class _AdditionalTestingData {

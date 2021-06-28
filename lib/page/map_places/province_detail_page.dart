@@ -36,7 +36,7 @@ class ProvinceDetailPage extends StatelessWidget {
                         fontSize: 20
                     )),
                     Text('${nf.format(infoProvince.totalConfirmedCase)} ('
-                        '${nf.format(infoProvince.infoProvinceCase.confirmedCase)})',
+                        '+${nf.format(infoProvince.infoProvinceCase.confirmedCase)})',
                         style: TextStyle(
                         fontWeight: FontWeight.bold,
                       color: Colors.red
@@ -54,7 +54,7 @@ class ProvinceDetailPage extends StatelessWidget {
                         fontSize: 20
                     )),
                     Text('${nf.format(infoProvince.totalCuredCase)} ('
-                        '${nf.format(infoProvince.infoProvinceCase.curedCase)})',
+                        '+${nf.format(infoProvince.infoProvinceCase.curedCase)})',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.green
@@ -72,7 +72,7 @@ class ProvinceDetailPage extends StatelessWidget {
                         fontSize: 20
                     )),
                     Text('${nf.format(infoProvince.totalDeathCase)} ('
-                        '${nf.format(infoProvince.infoProvinceCase.deathCase)})',
+                        '+${nf.format(infoProvince.infoProvinceCase.deathCase)})',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.blue

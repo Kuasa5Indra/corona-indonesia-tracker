@@ -82,21 +82,10 @@ class DailyReportDetail extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(nf.format(int.parse(data.getTotalSpecimen())),
+                      Text(nf.format(data.getTotalSpecimen()),
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalSpecimen()))})',
-                          style: TextStyle(color: Colors.white, fontSize: 15)
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('PCR + TCM = ${nf.format(int.parse(data.getTotalPCRSpecimen()))}',
-                          style: TextStyle(color: Colors.white, fontSize: 15)
-                      ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalPCRSpecimen()))})',
+                      Text('(+${nf.format(data.getAdditionalSpecimen())})',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
                     ],
@@ -104,10 +93,21 @@ class DailyReportDetail extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Antigen = ${nf.format(int.parse(data.getTotalAntigenSpecimen()))}',
+                      Text('PCR + TCM = ${nf.format(data.getTotalPCRSpecimen())}',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalAntigenSpecimen()))})',
+                      Text('(+${nf.format(data.getAdditionalPCRSpecimen())})',
+                          style: TextStyle(color: Colors.white, fontSize: 15)
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Antigen = ${nf.format(data.getTotalAntigenSpecimen())}',
+                          style: TextStyle(color: Colors.white, fontSize: 15)
+                      ),
+                      Text('(+${nf.format(data.getAdditionalAntigenSpecimen())})',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
                     ],
@@ -129,21 +129,10 @@ class DailyReportDetail extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(nf.format(int.parse(data.getTotalPeopleTested())),
+                      Text(nf.format(data.getTotalPeopleTested()),
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalPeopleTested()))})',
-                          style: TextStyle(color: Colors.white, fontSize: 15)
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text('PCR + TCM = ${nf.format(int.parse(data.getTotalPCRTested()))}',
-                          style: TextStyle(color: Colors.white, fontSize: 15)
-                      ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalPCRTested()))})',
+                      Text('(+${nf.format(data.getAdditionalPeopleTested())})',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
                     ],
@@ -151,10 +140,21 @@ class DailyReportDetail extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('Antigen = ${nf.format(int.parse(data.getTotalAntigenTested()))}',
+                      Text('PCR + TCM = ${nf.format(data.getTotalPCRTested())}',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalAntigenTested()))})',
+                      Text('(+${nf.format(data.getAdditionalPCRTested())})',
+                          style: TextStyle(color: Colors.white, fontSize: 15)
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Antigen = ${nf.format(data.getTotalAntigenTested())}',
+                          style: TextStyle(color: Colors.white, fontSize: 15)
+                      ),
+                      Text('(+${nf.format(data.getAdditionalAntigenTested())})',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
                     ],
@@ -203,10 +203,10 @@ class DailyReportDetail extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(nf.format(int.parse(data.getTotalFirstVaccine())),
+                      Text(nf.format(data.getTotalFirstVaccine()),
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalFirstVaccine()))})',
+                      Text('(+${nf.format(data.getAdditionalFirstVaccine())})',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
                     ],
@@ -228,10 +228,10 @@ class DailyReportDetail extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(nf.format(int.parse(data.getTotalSecondVaccine())),
+                      Text(nf.format(data.getTotalSecondVaccine()),
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
-                      Text('(+${nf.format(int.parse(data.getAdditionalSecondVaccine()))})',
+                      Text('(+${nf.format(data.getAdditionalSecondVaccine())})',
                           style: TextStyle(color: Colors.white, fontSize: 15)
                       ),
                     ],
