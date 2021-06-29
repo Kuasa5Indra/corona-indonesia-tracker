@@ -13,7 +13,8 @@ class DailyReportPage extends StatefulWidget {
 
 class _DailyReportPageState extends State<DailyReportPage> {
   Future<ReportData>? futureData;
-  int positiveCases = 0;
+  int? positiveCases;
+  bool isLoading = true;
 
   @override
   void initState() {
@@ -21,6 +22,7 @@ class _DailyReportPageState extends State<DailyReportPage> {
     futureData = fetchReportData();
     fetchDailyUpdate().then((data) {
       positiveCases = data.getUpdatePositiveCases();
+      isLoading = false;
     });
   }
 
@@ -33,9 +35,13 @@ class _DailyReportPageState extends State<DailyReportPage> {
           if(snapshot.hasError){
             return Center(child: Text(snapshot.error.toString()));
           }
-          return (snapshot.hasData)
-              ? DailyReportDetail(data: snapshot.data!, positiveCases: positiveCases)
-              : Center(child: CircularProgressIndicator());
+          if(snapshot.hasData && !isLoading){
+            return DailyReportDetail(data: snapshot.data!, positiveCases: positiveCases!);
+          }
+          return Center(child: CircularProgressIndicator());
+          // return (snapshot.hasData)
+          //     ? DailyReportDetail(data: snapshot.data!, positiveCases: positiveCases!)
+          //     : Center(child: CircularProgressIndicator());
         },
       ),
     );
