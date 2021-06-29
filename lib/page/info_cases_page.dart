@@ -32,6 +32,7 @@ class _InfoCasesPageState extends State<InfoCasesPage> {
           backgroundColor: Colors.redAccent,
           bottom: TabBar(
             indicatorColor: Colors.white,
+            isScrollable: true,
             tabs: [
               for (final tab in tabs) Tab(text: tab),
             ],

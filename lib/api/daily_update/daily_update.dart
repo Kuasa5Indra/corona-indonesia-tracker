@@ -14,18 +14,18 @@ class DailyData {
     );
   }
 
-  String getSuspect() => caseData.suspect.toString();
-  String getSpecimens() => caseData.specimens.toString();
-  String getNegativeSpecimens() => caseData.negativeSpecimens.toString();
+  int getSuspect() => caseData.suspect;
+  int getSpecimens() => caseData.specimens;
+  int getNegativeSpecimens() => caseData.negativeSpecimens;
   String getUpdateDate() => updateData.getUpdateDate();
-  String getUpdatePositiveCases() => updateData.getUpdatePositiveCases();
-  String getUpdateTreatedCases() => updateData.getUpdateTreatedCases();
-  String getUpdateCuredCases() => updateData.getUpdateCuredCases();
-  String getUpdateDeathCases() => updateData.getUpdateDeathCases();
-  String getUpdateTotalPositiveCases() => updateData.getUpdateTotalPositiveCases();
-  String getUpdateTotalTreatedCases() => updateData.getUpdateTotalTreatedCases();
-  String getUpdateTotalCuredCases() => updateData.getUpdateTotalCuredCases();
-  String getUpdateTotalDeathCases() => updateData.getUpdateTotalDeathCases();
+  int getUpdatePositiveCases() => updateData.getUpdatePositiveCases();
+  int getUpdateTreatedCases() => updateData.getUpdateTreatedCases();
+  int getUpdateCuredCases() => updateData.getUpdateCuredCases();
+  int getUpdateDeathCases() => updateData.getUpdateDeathCases();
+  int getUpdateTotalPositiveCases() => updateData.getUpdateTotalPositiveCases();
+  int getUpdateTotalTreatedCases() => updateData.getUpdateTotalTreatedCases();
+  int getUpdateTotalCuredCases() => updateData.getUpdateTotalCuredCases();
+  int getUpdateTotalDeathCases() => updateData.getUpdateTotalDeathCases();
 }
 
 class _DailyCaseData {
@@ -58,14 +58,14 @@ class _DailyUpdateData {
   }
 
   String getUpdateDate() => additionalCases.date;
-  String getUpdatePositiveCases() => additionalCases.positiveCases.toString();
-  String getUpdateTreatedCases() => additionalCases.treatedCases.toString();
-  String getUpdateCuredCases() => additionalCases.curedCases.toString();
-  String getUpdateDeathCases() => additionalCases.deathCases.toString();
-  String getUpdateTotalPositiveCases() => totalCases.totalPositiveCases.toString();
-  String getUpdateTotalTreatedCases() => totalCases.totalTreatedCases.toString();
-  String getUpdateTotalCuredCases() => totalCases.totalCuredCases.toString();
-  String getUpdateTotalDeathCases() => totalCases.totalDeathCases.toString();
+  int getUpdatePositiveCases() => additionalCases.positiveCases;
+  int getUpdateTreatedCases() => additionalCases.treatedCases;
+  int getUpdateCuredCases() => additionalCases.curedCases;
+  int getUpdateDeathCases() => additionalCases.deathCases;
+  int getUpdateTotalPositiveCases() => totalCases.totalPositiveCases;
+  int getUpdateTotalTreatedCases() => totalCases.totalTreatedCases;
+  int getUpdateTotalCuredCases() => totalCases.totalCuredCases;
+  int getUpdateTotalDeathCases() => totalCases.totalDeathCases;
 }
 
 class _DailyAdditionalCases {
