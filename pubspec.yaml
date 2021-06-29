@@ -31,6 +31,7 @@ dependencies:
   http: ^0.13.3
   fluttertoast: ^8.0.7
   intl: ^0.17.0
+  percent_indicator: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +60,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/ilustrasi-peta-sebaran-small.jpg
+    - assets/covid-test.jpg
+    - assets/covid-vaccine.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -54,7 +54,8 @@ class _RiskMapPageState extends State<RiskMapPage> {
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'Masukkan kota, provinsi, atau status resiko',
-                border: InputBorder.none
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.search)
               ),
               onChanged: (value) {
                 setState(() {
