@@ -31,6 +31,7 @@ dependencies:
   http: ^0.13.3
   fluttertoast: ^8.0.7
   intl: ^0.17.0
+  percent_indicator: ^3.0.1
 
 dev_dependencies:
   flutter_test:

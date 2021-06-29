@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:coronaindonesiatracker/api/daily_update/daily_report.dart';
 import 'package:coronaindonesiatracker/api/daily_update/fetch_data.dart';
+import 'package:percent_indicator/percent_indicator.dart';
 
 class DailyReportPage extends StatefulWidget {
   DailyReportPage({Key? key}) : super(key: key);
@@ -12,11 +13,15 @@ class DailyReportPage extends StatefulWidget {
 
 class _DailyReportPageState extends State<DailyReportPage> {
   Future<ReportData>? futureData;
+  int positiveCases = 0;
 
   @override
   void initState() {
-    futureData = fetchReportData();
     super.initState();
+    futureData = fetchReportData();
+    fetchDailyUpdate().then((data) {
+      positiveCases = data.getUpdatePositiveCases();
+    });
   }
 
   @override
@@ -29,7 +34,7 @@ class _DailyReportPageState extends State<DailyReportPage> {
             return Center(child: Text(snapshot.error.toString()));
           }
           return (snapshot.hasData)
-              ? DailyReportDetail(data: snapshot.data!)
+              ? DailyReportDetail(data: snapshot.data!, positiveCases: positiveCases)
               : Center(child: CircularProgressIndicator());
         },
       ),
@@ -39,12 +44,39 @@ class _DailyReportPageState extends State<DailyReportPage> {
 
 class DailyReportDetail extends StatelessWidget {
   final ReportData data;
+  final int positiveCases;
   final nf = NumberFormat("###,###", "id_ID");
 
-  DailyReportDetail({Key? key, required this.data}) : super(key: key);
+  DailyReportDetail({Key? key, required this.data, required this.positiveCases}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    Color getProgressVaccinationColor(){
+      var progress = data.getTotalSecondVaccine() / 181554465 * 100;
+      if(progress <= 25){
+        return Colors.red;
+      } else if(progress > 25 && progress <= 50){
+        return Colors.orange;
+      } else if(progress > 50 && progress <= 75){
+        return Colors.yellow;
+      } else {
+        return Colors.green;
+      }
+    }
+
+    String getPositivityRateCategory(){
+      var positivityRate = this.positiveCases / data.getAdditionalPeopleTested() * 100;
+      if(positivityRate < 2){
+        return "Insiden Rendah";
+      } else if(positivityRate >= 2 && positivityRate < 5){
+        return "Insiden Sedang";
+      } else if(positivityRate >= 5 && positivityRate < 20){
+        return "Insiden Tinggi";
+      } else {
+        return "Insiden Sangat Tinggi";
+      }
+    }
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -163,6 +195,38 @@ class DailyReportDetail extends StatelessWidget {
               ),
             ),
           ),
+          Card(
+            color: Colors.grey,
+            child: ListTile(
+              title: Center(
+                child: Text('Positivity Rate Harian',
+                    style: TextStyle(color: Colors.white, fontSize: 18)
+                ),
+              ),
+              subtitle: Center(
+                  child: Column(
+                    children: [
+                      Text(
+                          (positiveCases / data.getAdditionalPeopleTested() * 100).toStringAsFixed(2) + '%',
+                          style: TextStyle(color: Colors.white, fontSize: 24)
+                      ),
+                      Text(
+                          getPositivityRateCategory(),
+                          style: TextStyle(color: Colors.white, fontSize: 16)
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                            'Positivity Rate dihitung berdasarkan jumlah orang '
+                                'yang positif dibagi dengan jumlah orang yang dites ',
+                            style: TextStyle(color: Colors.white, fontSize: 16)
+                        ),
+                      ),
+                    ],
+                  )
+              ),
+            ),
+          ),
           Divider(
             height: 40,
             thickness: 3,
@@ -186,6 +250,24 @@ class DailyReportDetail extends StatelessWidget {
                     Text('Update Terbaru'),
                     Text(DateFormat.yMMMMd().format(DateTime.parse(data.getUpdateVaccinationDate())))
                   ],
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: [
+                Text('Progress Vaksinasi'),
+                LinearPercentIndicator(
+                  width: MediaQuery.of(context).size.width - 20,
+                  animation: true,
+                  lineHeight: 20.0,
+                  animationDuration: 3000,
+                  percent: data.getTotalSecondVaccine() / 181554465,
+                  center: Text((data.getTotalSecondVaccine() / 181554465 * 100).toStringAsFixed(2) + '%'),
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  progressColor: getProgressVaccinationColor(),
                 ),
               ],
             ),
@@ -237,6 +319,21 @@ class DailyReportDetail extends StatelessWidget {
                     ],
                   ),
                 ],
+              ),
+            ),
+          ),
+          Card(
+            color: Colors.cyan,
+            child: ListTile(
+              title: Center(
+                child: Text('Target Vaksinasi Nasional',
+                    style: TextStyle(color: Colors.white, fontSize: 18)
+                ),
+              ),
+              subtitle: Center(
+                  child: Text(nf.format(181554465),
+                      style: TextStyle(color: Colors.white, fontSize: 24)
+                  )
               ),
             ),
           ),
