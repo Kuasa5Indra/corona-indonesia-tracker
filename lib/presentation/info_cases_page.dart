@@ -2,9 +2,7 @@ import 'package:coronaindonesiatracker/cubit/info_cases/info_cases_cubit.dart';
 import 'package:coronaindonesiatracker/cubit/info_cases/info_cases_state.dart';
 import 'package:coronaindonesiatracker/data/model/info_cases.dart';
 import 'package:flutter/material.dart';
-// import 'package:coronaindonesiatracker/api/info_cases/fetch_info_cases.dart';
-// import 'package:coronaindonesiatracker/api/info_cases/info_cases.dart';
-import 'package:coronaindonesiatracker/new-page/category_cases/category_cases_page.dart';
+import 'package:coronaindonesiatracker/presentation/category_cases/category_cases_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class InfoCasesScreen extends StatefulWidget {

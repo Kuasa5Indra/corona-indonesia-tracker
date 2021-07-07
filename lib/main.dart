@@ -1,7 +1,7 @@
 import 'package:coronaindonesiatracker/cubit/info_cases/info_cases_view.dart';
 import 'package:flutter/material.dart';
-import 'package:coronaindonesiatracker/new-page/homepage.dart';
-import 'package:coronaindonesiatracker/new-page/place_page.dart';
+import 'package:coronaindonesiatracker/presentation/homepage.dart';
+import 'package:coronaindonesiatracker/presentation/place_page.dart';
 
 void main() => runApp(CoronaTrackerApp());
 

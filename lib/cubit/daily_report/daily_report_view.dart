@@ -1,6 +1,6 @@
 import 'package:coronaindonesiatracker/data/repository/daily_report_repository.dart';
 import 'package:coronaindonesiatracker/data/repository/daily_update_repository.dart';
-import 'package:coronaindonesiatracker/new-page/homepage/daily_report_page.dart';
+import 'package:coronaindonesiatracker/presentation/homepage/daily_report_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

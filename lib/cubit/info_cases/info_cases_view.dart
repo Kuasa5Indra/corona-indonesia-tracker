@@ -1,5 +1,5 @@
 import 'package:coronaindonesiatracker/data/repository/info_cases_repository.dart';
-import 'package:coronaindonesiatracker/new-page/info_cases_page.dart';
+import 'package:coronaindonesiatracker/presentation/info_cases_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
