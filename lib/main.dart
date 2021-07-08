@@ -1,7 +1,9 @@
+import 'package:coronaindonesiatracker/cubit/info_cases/info_cases_view.dart';
+import 'package:coronaindonesiatracker/presentation/no_connection.dart';
 import 'package:flutter/material.dart';
-import 'package:coronaindonesiatracker/page/homepage.dart';
-import 'package:coronaindonesiatracker/page/info_cases_page.dart';
-import 'package:coronaindonesiatracker/page/place_page.dart';
+import 'package:coronaindonesiatracker/presentation/homepage.dart';
+import 'package:coronaindonesiatracker/presentation/place_page.dart';
+import 'package:cross_connectivity/cross_connectivity.dart';
 
 void main() => runApp(CoronaTrackerApp());
 
@@ -56,7 +58,15 @@ class _AppNavigationBarState extends State<AppNavigationBar> {
           ),
         ],
       ),
-      body: _pages[_currentIndex],
+      body: ConnectivityBuilder(
+        builder: (context, isConnected, status) {
+          if(status != ConnectivityStatus.none){
+            return _pages[_currentIndex];
+          } else {
+            return NoConnectionPage();
+          }
+        },
+      ),
     );
   }
 }
