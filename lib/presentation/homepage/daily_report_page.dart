@@ -30,8 +30,8 @@ class DailyReportScreen extends StatelessWidget {
   }
 
   Widget screen(context, ReportData data, int positiveCases){
-    Color getProgressVaccinationColor(){
-      var progress = data.getTotalSecondVaccine() / 181554465 * 100;
+    Color getProgressVaccinationColor(int totalVaccine){
+      var progress = totalVaccine / 181554465 * 100;
       if(progress <= 25){
         return Colors.red;
       } else if(progress > 25 && progress <= 50){
@@ -236,7 +236,18 @@ class DailyReportScreen extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: Column(
               children: [
-                Text('Progress Vaksinasi'),
+                Text('Progress Vaksinasi Pertama'),
+                LinearPercentIndicator(
+                  width: MediaQuery.of(context).size.width - 20,
+                  animation: true,
+                  lineHeight: 20.0,
+                  animationDuration: 3000,
+                  percent: data.getTotalFirstVaccine() / 181554465,
+                  center: Text((data.getTotalFirstVaccine() / 181554465 * 100).toStringAsFixed(2) + '%'),
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  progressColor: getProgressVaccinationColor(data.getTotalFirstVaccine()),
+                ),
+                Text('Progress Vaksinasi Kedua'),
                 LinearPercentIndicator(
                   width: MediaQuery.of(context).size.width - 20,
                   animation: true,
@@ -245,7 +256,7 @@ class DailyReportScreen extends StatelessWidget {
                   percent: data.getTotalSecondVaccine() / 181554465,
                   center: Text((data.getTotalSecondVaccine() / 181554465 * 100).toStringAsFixed(2) + '%'),
                   linearStrokeCap: LinearStrokeCap.roundAll,
-                  progressColor: getProgressVaccinationColor(),
+                  progressColor: getProgressVaccinationColor(data.getTotalSecondVaccine()),
                 ),
               ],
             ),
