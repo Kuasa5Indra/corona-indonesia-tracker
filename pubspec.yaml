@@ -32,6 +32,9 @@ dependencies:
   fluttertoast: ^8.0.7
   intl: ^0.17.0
   percent_indicator: ^3.0.1
+  bloc: ^7.0.0
+  flutter_bloc: ^7.0.1
+  cross_connectivity: ^3.0.3
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +65,7 @@ flutter:
     - assets/ilustrasi-peta-sebaran-small.jpg
     - assets/covid-test.jpg
     - assets/covid-vaccine.jpg
+    - assets/no-wifi.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
