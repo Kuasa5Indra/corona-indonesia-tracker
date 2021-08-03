@@ -8,6 +8,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class DailyReportScreen extends StatelessWidget {
   final nf = NumberFormat("###,###", "id_ID");
+  final totalNationalVaccine = 208265720;
   DailyReportScreen({Key? key}) : super(key: key);
 
   @override
@@ -31,7 +32,7 @@ class DailyReportScreen extends StatelessWidget {
 
   Widget screen(context, ReportData data, int positiveCases){
     Color getProgressVaccinationColor(int totalVaccine){
-      var progress = totalVaccine / 181554465 * 100;
+      var progress = totalVaccine / totalNationalVaccine * 100;
       if(progress <= 25){
         return Colors.red;
       } else if(progress > 25 && progress <= 50){
@@ -242,8 +243,8 @@ class DailyReportScreen extends StatelessWidget {
                   animation: true,
                   lineHeight: 20.0,
                   animationDuration: 3000,
-                  percent: data.getTotalFirstVaccine() / 181554465,
-                  center: Text((data.getTotalFirstVaccine() / 181554465 * 100).toStringAsFixed(2) + '%'),
+                  percent: data.getTotalFirstVaccine() / totalNationalVaccine,
+                  center: Text((data.getTotalFirstVaccine() / totalNationalVaccine * 100).toStringAsFixed(2) + '%'),
                   linearStrokeCap: LinearStrokeCap.roundAll,
                   progressColor: getProgressVaccinationColor(data.getTotalFirstVaccine()),
                 ),
@@ -253,8 +254,8 @@ class DailyReportScreen extends StatelessWidget {
                   animation: true,
                   lineHeight: 20.0,
                   animationDuration: 3000,
-                  percent: data.getTotalSecondVaccine() / 181554465,
-                  center: Text((data.getTotalSecondVaccine() / 181554465 * 100).toStringAsFixed(2) + '%'),
+                  percent: data.getTotalSecondVaccine() / totalNationalVaccine,
+                  center: Text((data.getTotalSecondVaccine() / totalNationalVaccine * 100).toStringAsFixed(2) + '%'),
                   linearStrokeCap: LinearStrokeCap.roundAll,
                   progressColor: getProgressVaccinationColor(data.getTotalSecondVaccine()),
                 ),
@@ -320,7 +321,7 @@ class DailyReportScreen extends StatelessWidget {
                 ),
               ),
               subtitle: Center(
-                  child: Text(nf.format(181554465),
+                  child: Text(nf.format(totalNationalVaccine),
                       style: TextStyle(color: Colors.white, fontSize: 24)
                   )
               ),
@@ -331,5 +332,3 @@ class DailyReportScreen extends StatelessWidget {
     );
   }
 }
-
-
